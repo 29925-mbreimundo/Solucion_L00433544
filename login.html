@@ -25,19 +25,19 @@
             <!-- Iniciar Sesion -->
             <div id="iniciar-sesion">
                 <h1>Iniciar Sesión</h1>
-                <form name="FormLoginAvanzado" action="" method="post">
+                <form name="FormLoginAvanzado" action="" method="get">
                     <div class="contenedor-input">
                         <label>
                             Usuario <span>*</span>
                         </label>
-                        <input type="text" name="usuario" required>
+                        <input type="text" id="usuario" name="usuario" required>
                     </div>
 
                     <div class="contenedor-input">
                         <label>
                             Contraseña <span>*</span>
                         </label>
-                        <input type="password" name="clave" required>
+                        <input type="password" id="contrasena" name="clave" required>
                     </div>
                     <input type="submit" class="button button-block" value="Iniciar Sesión">
                 </form>
@@ -46,7 +46,7 @@
             <!-- Registrarse -->
             <div id="registrarse">
                 <h1>Registrarse</h1>
-                <form action="" method="post">
+                <form action="" method="get">
                     <div class="fila-arriba">
                         <div class="contenedor-input">
                             <label>
@@ -85,7 +85,8 @@
                         <label>
                             Teléfono <span>*</span>
                         </label>
-                        <input type="telefono" name="telefono" required>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        
 
                     </div>
 
@@ -111,30 +112,6 @@
    <script src="js/jquery.js"></script>
    <script src="js/main.js"></script>
 
-    <script>
-        // Validación de teléfono: exactamente 10 dígitos numéricos
-        (function(){
-            var form = document.querySelector('#registrarse form');
-            if(!form) return; // por si cambia la estructura
-
-            form.addEventListener('submit', function(e){
-                var telefonoInput = document.getElementById('telefono');
-                var errorEl = document.getElementById('telefono-error');
-                var val = telefonoInput.value || '';
-                // eliminar espacios y caracteres no numéricos
-                var digits = val.replace(/\D/g, '');
-                if(digits.length !== 10){
-                    e.preventDefault();
-                    errorEl.style.display = 'block';
-                    telefonoInput.focus();
-                    return false;
-                }
-                // si está OK, asegurar que el valor enviado son sólo los dígitos
-                telefonoInput.value = digits;
-                errorEl.style.display = 'none';
-            });
-        })();
-    </script>
 
 </body>
 </html>

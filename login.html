@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!-- Estilos Google -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/estiloslogin.css">
+
+    <title>Formulario Login y Registro de Usuarios</title>
+</head>
+<body>
+    <div class="contenedor-formularios">
+        <!-- Links de los formularios -->
+        <ul class="contenedor-tabs">
+            <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+            <li class="tab tab-primera" name="registrar"><a href="#registrarse">Registrarse</a></li>
+        </ul>
+
+        <!-- Contenido de los Formularios -->
+        <div class="contenido-tab">
+            <!-- Iniciar Sesion -->
+            <div id="iniciar-sesion">
+                <h1>Iniciar Sesión</h1>
+                <form name="FormLoginAvanzado" action="" method="post">
+                    <div class="contenedor-input">
+                        <label>
+                            Usuario <span>*</span>
+                        </label>
+                        <input type="text" name="usuario" required>
+                    </div>
+
+                    <div class="contenedor-input">
+                        <label>
+                            Contraseña <span>*</span>
+                        </label>
+                        <input type="password" name="clave" required>
+                    </div>
+                    <input type="submit" class="button button-block" value="Iniciar Sesión">
+                </form>
+            </div>
+
+            <!-- Registrarse -->
+            <div id="registrarse">
+                <h1>Registrarse</h1>
+                <form action="" method="post">
+                    <div class="fila-arriba">
+                        <div class="contenedor-input">
+                            <label>
+                                Nombre <span>*</span>
+                            </label>
+                            <input type="text" name="nom" required>
+                        </div>
+
+                        <div class="contenedor-input">
+                            <label>
+                                Apellido <span>*</span>
+                            </label>
+                            <input type="text" name="ape" required>
+                        </div>
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            Usuario <span>*</span>
+                        </label>
+                        <input type="text" name="usu" required>
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            Email <span>*</span>
+                        </label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            Contraseña <span>*</span>
+                        </label>
+                        <input type="password" name="pas" required>
+                    </div>
+                    
+                    <div class="contenedor-input">
+                        <label>
+                            Teléfono <span>*</span>
+                        </label>
+                        <input type="telefono" name="telefono" required>
+
+                    </div>
+
+                    <div class="contenedor-input">
+                        <label>
+                            Empresa <span>*</span>
+                        </label>
+                        <input type="text" name="empresa" required>
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            <span></span>
+                        </label>
+                        <input type="date" name="fecha" required>
+                    </div>
+
+                    <input type="submit" class="button button-block" value="Registrarse">
+                </form>
+            </div>
+        </div>
+    </div>
+
+   <script src="js/jquery.js"></script>
+   <script src="js/main.js"></script>
+
+    <script>
+        // Validación de teléfono: exactamente 10 dígitos numéricos
+        (function(){
+            var form = document.querySelector('#registrarse form');
+            if(!form) return; // por si cambia la estructura
+
+            form.addEventListener('submit', function(e){
+                var telefonoInput = document.getElementById('telefono');
+                var errorEl = document.getElementById('telefono-error');
+                var val = telefonoInput.value || '';
+                // eliminar espacios y caracteres no numéricos
+                var digits = val.replace(/\D/g, '');
+                if(digits.length !== 10){
+                    e.preventDefault();
+                    errorEl.style.display = 'block';
+                    telefonoInput.focus();
+                    return false;
+                }
+                // si está OK, asegurar que el valor enviado son sólo los dígitos
+                telefonoInput.value = digits;
+                errorEl.style.display = 'none';
+            });
+        })();
+    </script>
+
+</body>
+</html>

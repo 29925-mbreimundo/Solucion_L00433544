@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <script src="js/script.js"></script>
+    <style>
+        #datosEconomicos {
+            display: none; 
+        }
+    </style>
+</head>
+
+<body>
+    <form name="FormProducto">
+        <fieldset>
+            <legend>Datos Básicos</legend>
+            <label for="nombreProducto">Nombre del Producto:</label>
+            <input type="text" id="nombreProducto" name="nombreProducto"><br><br>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion"></textarea><br><br>
+
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" name="foto"><br><br>
+
+            <input type="checkbox" id="infoconfidencial">
+            <label for="infoconfidencial">Añadir información confidencial</label><br><br>
+        </fieldset>
+
+        <fieldset >
+            <legend>Datos Económicos</legend>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio"><br><br>
+
+            <label for="impuestos">Impuestos:</label>
+            <select id="impuestos" name="impuestos">
+                <option value="4">4%</option>
+                <option value="8">8%</option>
+                <option value="12">12%</option>
+            </select><br><br>
+
+            <label>Promoción:</label><br>
+            <input type="radio" id="ninguno" name="promocion" value="ninguno" checked>
+            <label for="ninguno">Ninguno</label><br>
+            <input type="radio" id="transporteGratis" name="promocion" value="transporteGratis">
+            <label for="transporteGratis">Transporte Gratuito</label><br>
+            <input type="radio" id="descuento" name="promocion" value="descuento">
+            <label for="descuento">Descuento 5%</label><br><br>
+        </fieldset>
+
+        <button type="submit">Guardar Cambios</button>
+        <button type="button" onclick="borrarDatos()">Borrar los datos introducidos</button>
+        <button type="button" onclick="location.href='index.html'">Regresar</button>
+    </form>
+</body>
+
+</html>

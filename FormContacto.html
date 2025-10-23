@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario de Contacto</title>
+            <script src="js/script.js" defer></script>
+        <link rel="stylesheet" href="css/estilocontact.css">
+    </head>
+<body>
+       
+    <form name="FormContacto" action="FormContactoEnviado.html" method="post" onsubmit="return validar();">
+            <div class="form-container">
+                <h2>Contacto</h2>
+                <p>Correo Electronico</p>
+                <input type="text" id="txtEmail" name="txtEmail" placeholder="&#9993; usuario@mail.com" required>
+                <p>Fecha de Nacimiento</p>
+                <input type="date"  name="txtFecha">
+                <p>Teléfono</p>
+                <input type="text" id="txtTelefono" name="txtTelefono" placeholder="&#9742; Telefono" required>
+                <input type="button" id="btnEnviar" name="BtnEnviar" value="Enviar" onclick="handleSubmit(this);">
+            </div>
+        </form>
+    
+    </body>
+</html>
